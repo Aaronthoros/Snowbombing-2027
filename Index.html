@@ -1,1 +1,464 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b0d0f">
+<title>SNOWBOMBING 2027</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:#0b0d0f;
+  color:#f3f0e8;
+  font-family:Arial,Helvetica,sans-serif;
+}
+header{
+  padding:28px 20px 20px;
+  background:linear-gradient(135deg,#11161a,#1b2227);
+  border-bottom:1px solid #39434a;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+.logo{
+  font-size:28px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+.subtitle{
+  color:#9ec6d5;
+  margin-top:5px;
+  font-size:13px;
+  letter-spacing:1px;
+}
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:18px;
+}
+.hero{
+  padding:28px 0 20px;
+}
+.hero h1{
+  font-size:42px;
+  line-height:1;
+  margin:0 0 10px;
+}
+.hero p{
+  color:#bfc8cc;
+  margin:0;
+}
+.countdown{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+  margin:24px 0;
+}
+.time{
+  background:#151a1e;
+  border:1px solid #303a40;
+  border-radius:12px;
+  padding:15px 5px;
+  text-align:center;
+}
+.time strong{
+  display:block;
+  font-size:25px;
+}
+.time span{
+  color:#88969c;
+  font-size:10px;
+  text-transform:uppercase;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+.card{
+  background:#14191d;
+  border:1px solid #303a40;
+  border-radius:14px;
+  padding:18px;
+}
+.card h2{
+  margin:0 0 8px;
+  font-size:17px;
+}
+.card p{
+  color:#aeb8bd;
+  font-size:13px;
+  line-height:1.5;
+}
+.full{
+  grid-column:1/-1;
+}
+.stat{
+  font-size:30px;
+  font-weight:bold;
+  color:#a9d5e3;
+}
+button{
+  width:100%;
+  border:0;
+  border-radius:10px;
+  padding:12px;
+  margin-top:8px;
+  background:#d9e7ea;
+  color:#101416;
+  font-weight:bold;
+  font-size:14px;
+}
+button.secondary{
+  background:#252d32;
+  color:#f3f0e8;
+}
+input,select{
+  width:100%;
+  padding:12px;
+  margin:5px 0;
+  border-radius:9px;
+  border:1px solid #3b464c;
+  background:#0e1215;
+  color:white;
+}
+.check{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:11px 0;
+  border-bottom:1px solid #2a3237;
+}
+.check input{
+  width:20px;
+  height:20px;
+  margin:0;
+}
+.check.done span{
+  text-decoration:line-through;
+  color:#657176;
+}
+.progress{
+  height:9px;
+  background:#252d32;
+  border-radius:20px;
+  overflow:hidden;
+  margin:12px 0;
+}
+.progressbar{
+  height:100%;
+  width:0%;
+  background:#9ec6d5;
+  transition:.3s;
+}
+.small{
+  font-size:12px;
+  color:#78868c;
+}
+footer{
+  text-align:center;
+  padding:30px 10px 50px;
+  color:#68757b;
+  font-size:11px;
+}
+@media(max-width:600px){
+  .grid{grid-template-columns:1fr}
+  .full{grid-column:auto}
+  .hero h1{font-size:36px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">SNOWBOMBING 2027</div>
+  <div class="subtitle">MAYRHOFEN • AUSTRIA • 4–11 APRIL 2027</div>
+</header>
+
+<main class="container">
+
+<section class="hero">
+  <h1>THE TRIP HQ</h1>
+  <p>Everything for Snowbombing in one place.</p>
+
+  <div class="countdown">
+    <div class="time"><strong id="days">0</strong><span>Days</span></div>
+    <div class="time"><strong id="hours">0</strong><span>Hours</span></div>
+    <div class="time"><strong id="mins">0</strong><span>Minutes</span></div>
+    <div class="time"><strong id="secs">0</strong><span>Seconds</span></div>
+  </div>
+</section>
+
+<section class="grid">
+
+<div class="card">
+  <h2>🎿 Ski Kit</h2>
+  <div class="stat" id="kitProgress">0%</div>
+  <div class="progress"><div class="progressbar" id="kitBar"></div></div>
+  <p>Track everything you need to buy or pack.</p>
+  <button onclick="showKit()">Open Kit List</button>
+</div>
+
+<div class="card">
+  <h2>✈️ Flights</h2>
+  <p><strong>Trip:</strong> 4–11 April 2027</p>
+  <p>Flight details can be added here once confirmed.</p>
+  <button onclick="editTrip()">Add Details</button>
+</div>
+
+<div class="card">
+  <h2>🏔️ Ski Hire</h2>
+  <p>Equipment hire, boots and premium upgrades.</p>
+  <button onclick="alert('Ski hire section ready — add your Mayrhofen booking details here.')">Open Ski Hire</button>
+</div>
+
+<div class="card">
+  <h2>🛡️ Insurance</h2>
+  <p>Travel insurance, ski cover and mountain rescue information.</p>
+  <button onclick="alert('Add your insurance provider, policy number and emergency details here.')">Insurance</button>
+</div>
+
+<div class="card">
+  <h2>💷 Budget</h2>
+  <p>Keep track of your trip spending.</p>
+  <input id="budget" type="number" placeholder="Total budget £">
+  <input id="spent" type="number" placeholder="Amount spent £">
+  <button onclick="saveBudget()">Save Budget</button>
+  <p id="budgetResult"></p>
+</div>
+
+<div class="card">
+  <h2>👥 Group</h2>
+  <p>Add the people travelling with you.</p>
+  <input id="person" placeholder="Name">
+  <button onclick="addPerson()">Add Person</button>
+  <div id="people"></div>
+</div>
+
+<div class="card full" id="kitSection">
+  <h2>🎿 Complete Ski Kit</h2>
+  <p class="small">Tap each item when you've bought or packed it.</p>
+
+  <div class="check"><input type="checkbox" onchange="updateKit()"><span>Ski jacket</span></div>
+  <div class="check"><input type="checkbox" onchange="updateKit()"><span>Ski trousers</span></div>
+  <div class="check"><input type="checkbox" onchange="updateKit()"><span>Ski goggles</span></div>
+  <div class="check"><input type="checkbox" onchange="updateKit()"><span>Ski helmet</span></div>
+  <div class="check"><input type="checkbox" onchange="updateKit()"><span>Ski gloves</span></div>
+  <div class="check"><input type="checkbox" onchange="updateKit()"><span>Base layers × 2</span></div>
+  <div class="check"><input type="checkbox" onchange="updateKit()"><span>Ski socks × 3</span></div>
+  <div class="check"><input type="checkbox" onchange="updateKit()"><span>Mid layer / fleece</span></div>
+  <div class="check"><input type="checkbox" onchange="updateKit()"><span>Neck warmer</span></div>
+  <div class="check"><input type="checkbox" onchange="updateKit()"><span>Sunglasses</span></div>
+  <div class="check"><input type="checkbox" onchange="updateKit()"><span>SPF sun cream</span></div>
+  <div class="check"><input type="checkbox" onchange="updateKit()"><span>Lip balm with SPF</span></div>
+  <div class="check"><input type="checkbox" onchange="updateKit()"><span>Après clothes</span></div>
+  <div class="check"><input type="checkbox" onchange="updateKit()"><span>Waterproof shoes</span></div>
+  <div class="check"><input type="checkbox" onchange="updateKit()"><span>Phone power bank</span></div>
+
+  <button class="secondary" onclick="resetKit()">Reset Checklist</button>
+</div>
+
+<div class="card full">
+  <h2>📅 Itinerary</h2>
+  <p><strong>Sunday 4 April</strong> — Travel to Mayrhofen</p>
+  <p><strong>Monday 5 April</strong> — Ski + Snowbombing</p>
+  <p><strong>Tuesday 6 April</strong> — Ski + Festival</p>
+  <p><strong>Wednesday 7 April</strong> — Ski + Festival</p>
+  <p><strong>Thursday 8 April</strong> — Ski + Festival</p>
+  <p><strong>Friday 9 April</strong> — Ski + Festival</p>
+  <p><strong>Saturday 10 April</strong> — Final ski + Festival</p>
+  <p><strong>Sunday 11 April</strong> — Travel home</p>
+</div>
+
+<div class="card full">
+  <h2>🆘 Emergency Info</h2>
+  <p>Austria emergency number: <strong>112</strong></p>
+  <p>Ski accident / mountain rescue details should be saved here before travelling.</p>
+  <button onclick="alert('Emergency number: 112\\n\\nAdd your insurer and policy details before travelling.')">Show Emergency Info</button>
+</div>
+
+</section>
+
+</main>
+
+<footer>
+SNOWBOMBING 2027 • MAYRHOFEN • AUSTRIA
+</footer>
+
+<script>
+
+const tripDate = new Date("2027-04-04T12:00:00");
+
+function countdown(){
+  const now = new Date();
+  const diff = tripDate - now;
+
+  if(diff <= 0){
+    document.getElementById("days").textContent = 0;
+    document.getElementById("hours").textContent = 0;
+    document.getElementById("mins").textContent = 0;
+    document.getElementById("secs").textContent = 0;
+    return;
+  }
+
+  document.getElementById("days").textContent =
+    Math.floor(diff / 86400000);
+
+  document.getElementById("hours").textContent =
+    Math.floor((diff / 3600000) % 24);
+
+  document.getElementById("mins").textContent =
+    Math.floor((diff / 60000) % 60);
+
+  document.getElementById("secs").textContent =
+    Math.floor((diff / 1000) % 60);
+}
+
+setInterval(countdown,1000);
+countdown();
+
+function updateKit(){
+
+  const checks = document.querySelectorAll("#kitSection input[type=checkbox]");
+  let complete = 0;
+
+  checks.forEach((box,index)=>{
+    localStorage.setItem("kit"+index,box.checked);
+
+    if(box.checked){
+      complete++;
+      box.parentElement.classList.add("done");
+    }else{
+      box.parentElement.classList.remove("done");
+    }
+  });
+
+  const percent = Math.round((complete/checks.length)*100);
+
+  document.getElementById("kitProgress").textContent = percent+"%";
+  document.getElementById("kitBar").style.width = percent+"%";
+}
+
+function loadKit(){
+
+  const checks = document.querySelectorAll("#kitSection input[type=checkbox]");
+
+  checks.forEach((box,index)=>{
+    box.checked = localStorage.getItem("kit"+index) === "true";
+  });
+
+  updateKit();
+}
+
+function resetKit(){
+
+  if(confirm("Reset your ski kit checklist?")){
+
+    const checks = document.querySelectorAll("#kitSection input[type=checkbox]");
+
+    checks.forEach((box,index)=>{
+      box.checked=false;
+      localStorage.removeItem("kit"+index);
+    });
+
+    updateKit();
+  }
+}
+
+function showKit(){
+  document.getElementById("kitSection").scrollIntoView({
+    behavior:"smooth"
+  });
+}
+
+function saveBudget(){
+
+  const budget = Number(document.getElementById("budget").value);
+  const spent = Number(document.getElementById("spent").value);
+
+  if(!budget){
+    alert("Enter your total budget first.");
+    return;
+  }
+
+  localStorage.setItem("budget",budget);
+  localStorage.setItem("spent",spent);
+
+  const remaining = budget-spent;
+
+  document.getElementById("budgetResult").textContent =
+    "Remaining: £"+remaining.toFixed(2);
+}
+
+function addPerson(){
+
+  const input=document.getElementById("person");
+  const name=input.value.trim();
+
+  if(!name) return;
+
+  const people=JSON.parse(localStorage.getItem("people")||"[]");
+
+  people.push(name);
+
+  localStorage.setItem("people",JSON.stringify(people));
+
+  input.value="";
+  loadPeople();
+}
+
+function loadPeople(){
+
+  const people=JSON.parse(localStorage.getItem("people")||"[]");
+  const box=document.getElementById("people");
+
+  box.innerHTML="";
+
+  people.forEach((name,index)=>{
+
+    const row=document.createElement("div");
+    row.className="check";
+
+    row.innerHTML =
+      "<span>"+name+"</span><button class='secondary' onclick='removePerson("+index+")'>Remove</button>";
+
+    box.appendChild(row);
+  });
+}
+
+function removePerson(index){
+
+  const people=JSON.parse(localStorage.getItem("people")||"[]");
+
+  people.splice(index,1);
+
+  localStorage.setItem("people",JSON.stringify(people));
+
+  loadPeople();
+}
+
+function editTrip(){
+  alert("Next we'll add your actual flights, accommodation, transfers and booking information.");
+}
+
+try{
+  document.getElementById("budget").value =
+    localStorage.getItem("budget") || "";
+
+  document.getElementById("spent").value =
+    localStorage.getItem("spent") || "";
+
+  loadKit();
+  loadPeople();
+}catch(e){
+  console.log("Local storage unavailable in preview.");
+}
+
+</script>
+
+</body>
+</html>
