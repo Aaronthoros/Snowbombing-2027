@@ -2,155 +2,143 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#050b12">
 <title>Snowbombing 2027 — Trip HQ</title>
-
 <style>
-:root{
---bg:#050b12;--panel:#0b1620;--text:#f7f5ef;--muted:#91a4b0;
---ice:#63d8ff;--purple:#a98cff;--line:#1c3442;
---danger:#ff706b;--good:#72e0ad
-}
+:root{--bg:#050b12;--panel:#0b1620;--panel2:#0f202d;--text:#f7f5ef;--muted:#91a4b0;--ice:#63d8ff;--cyan:#20bfff;--purple:#a98cff;--sand:#d9b27e;--line:#1c3442;--danger:#ff706b;--good:#72e0ad}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
-margin:0;background:radial-gradient(circle at 80% 0,#18394d,#071019 40%,#04080d 80%);
-color:var(--text);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif
-}
+body{margin:0;background:radial-gradient(circle at 80% 0,#18394d 0,#071019 35%,#04080d 78%);color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 a{color:inherit;text-decoration:none}
-.wrap{width:min(1200px,calc(100% - 24px));margin:auto}
-.top{
-height:62px;position:sticky;top:0;z-index:50;
-background:#04090ed9;backdrop-filter:blur(18px);
-border-bottom:1px solid var(--line)
-}
+.wrap{width:min(1220px,calc(100% - 28px));margin:auto}
+
+.top{position:sticky;top:0;z-index:50;height:62px;background:rgba(4,9,14,.82);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
 .topin{height:100%;display:flex;align-items:center;justify-content:space-between}
-.brand{font-size:13px;font-weight:900;letter-spacing:.15em}
+.brand{font-size:13px;font-weight:950;letter-spacing:.13em}
 .brand span{color:var(--ice)}
 .user{display:flex;align-items:center;gap:9px;color:var(--muted);font-size:12px}
-.avatar{
-width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
-background:linear-gradient(135deg,var(--ice),var(--purple));color:#061019;font-weight:900
-}
-.hero{
-min-height:530px;position:relative;overflow:hidden;
-background:
-linear-gradient(180deg,#06101a22,#050b12),
-url("https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=1800&q=85")
-center/cover
-}
-.hero:after{
-content:"";position:absolute;inset:0;
-background:linear-gradient(90deg,#040a0fe8,transparent 70%),linear-gradient(0deg,#050b12,transparent 45%)
-}
-.hero .wrap{position:relative;z-index:2;padding-top:90px}
-.eyebrow{
-color:var(--ice);font-size:11px;font-weight:900;letter-spacing:.2em;text-transform:uppercase
-}
-.hero h1{
-font-size:clamp(55px,10vw,110px);line-height:.82;letter-spacing:-.06em;
-margin:18px 0;text-shadow:0 8px 35px #000
-}
+.avatar{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--ice),var(--purple));color:#061019;font-weight:900}
+
+.hero{position:relative;min-height:530px;overflow:hidden;background:linear-gradient(180deg,rgba(5,11,17,.08),#050b12 92%),url("https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=1800&q=85") center/cover}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,10,15,.85),transparent 65%),linear-gradient(0deg,#050b12 0,transparent 35%)}
+.hero .wrap{position:relative;z-index:2;padding-top:95px}
+.eyebrow{color:var(--ice);font-size:12px;font-weight:850;letter-spacing:.2em;text-transform:uppercase}
+.hero h1{font-size:clamp(54px,10vw,112px);line-height:.82;letter-spacing:-.06em;margin:18px 0 14px;max-width:850px;text-shadow:0 6px 35px #000}
+.hero h1 span{color:white}
 .hero p{max-width:560px;color:#d2dbe0;line-height:1.55}
-.count{display:grid;grid-template-columns:repeat(4,120px);gap:8px;margin-top:28px}
-.count div{
-background:#030c12b8;border:1px solid #31586b;border-radius:13px;
-padding:12px;text-align:center
-}
-.count b{font-size:27px;display:block}.count small{font-size:9px;color:var(--muted);letter-spacing:.12em}
-main{padding:25px 0 80px}
+.count{display:grid;grid-template-columns:repeat(4,120px);gap:9px;margin-top:28px}
+.count div{background:rgba(3,12,18,.7);border:1px solid #31586b;border-radius:13px;padding:13px;text-align:center}
+.count b{font-size:27px;display:block}
+.count small{font-size:9px;letter-spacing:.15em;color:var(--muted)}
+
+main{padding:26px 0 90px}
 .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
-.card{
-grid-column:span 4;background:linear-gradient(#0e1f2bf7,#07121af7);
-border:1px solid var(--line);border-radius:19px;padding:20px;
-box-shadow:0 15px 45px #0005
-}
-.wide{grid-column:span 8}.full{grid-column:1/-1}
-.kicker{
-font-size:10px;letter-spacing:.18em;color:var(--ice);
-font-weight:900;text-transform:uppercase;margin-bottom:7px
-}
-.card h2{margin:0 0 8px;font-size:21px}
-.card p{color:var(--muted);font-size:13px;line-height:1.5}
-.tiles,.lineup{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
-.tile{
-min-height:145px;border:1px solid #25485a;border-radius:13px;padding:13px;
-display:flex;flex-direction:column;justify-content:flex-end;
-background:linear-gradient(transparent,#06121bdd),
-url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=700&q=70") center/cover
-}
-.tile:nth-child(2){background-image:linear-gradient(transparent,#06121bdd),url("https://images.unsplash.com/photo-1478827536114-da961b7c2d0a?auto=format&fit=crop&w=700&q=70")}
-.tile:nth-child(3){background-image:linear-gradient(transparent,#06121bdd),url("https://images.unsplash.com/photo-1517825738774-7de9363ef735?auto=format&fit=crop&w=700&q=70")}
-.tile b{font-size:14px}.tile small{color:#a9bac3}
-.artist{
-min-height:185px;border:1px solid #244354;border-radius:13px;
-display:flex;align-items:flex-end;overflow:hidden;
-background:linear-gradient(transparent,#050b12),url("https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=600&q=75") center/cover
-}
-.artist:nth-child(2){background-image:linear-gradient(transparent,#050b12),url("https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=600&q=75")}
-.artist:nth-child(3){background-image:linear-gradient(transparent,#050b12),url("https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=600&q=75")}
-.artist:nth-child(4){background-image:linear-gradient(#152f40aa,#050b12),url("https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=600&q=75")}
-.artist div{padding:14px}.artist b{font-size:18px}.artist small{display:block;color:var(--ice);font-weight:800}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.card{grid-column:span 4;background:linear-gradient(180deg,rgba(14,31,43,.97),rgba(7,18,26,.97));border:1px solid var(--line);border-radius:19px;padding:20px;box-shadow:0 16px 45px #0005}
+.wide{grid-column:span 8}
+.full{grid-column:1/-1}
+.kicker{font-size:10px;letter-spacing:.18em;color:var(--ice);font-weight:900;text-transform:uppercase;margin-bottom:7px}
+.card h2{margin:0 0 6px;font-size:21px}
+.card p{color:var(--muted);font-size:13px;line-height:1.5;margin:0 0 15px}
+
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.tile{min-height:150px;border:1px solid #25485a;border-radius:13px;padding:13px;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(180deg,transparent 25%,#06121bd9),url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=700&q=70") center/cover}
+.tile:nth-child(2){background-image:linear-gradient(180deg,transparent 25%,#06121bd9),url("https://images.unsplash.com/photo-1478827536114-da961b7c2d0a?auto=format&fit=crop&w=700&q=70")}
+.tile:nth-child(3){background-image:linear-gradient(180deg,transparent 25%,#06121bd9),url("https://images.unsplash.com/photo-1517825738774-7de9363ef735?auto=format&fit=crop&w=700&q=70")}
+.tile b{font-size:14px}
+.tile small{color:#a9bac3;margin-top:3px}
+
+.lineup{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.artist{min-height:190px;border:1px solid #244354;border-radius:13px;overflow:hidden;display:flex;align-items:flex-end;background:linear-gradient(180deg,transparent,#050b12),url("https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=600&q=75") center/cover}
+.artist:nth-child(2){background-image:linear-gradient(180deg,transparent,#050b12),url("https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=600&q=75")}
+.artist:nth-child(3){background-image:linear-gradient(180deg,transparent,#050b12),url("https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=600&q=75")}
+.artist:nth-child(4){background-image:linear-gradient(180deg,#152f40aa,#050b12),url("https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=600&q=75")}
+.artist div{padding:14px}
+.artist b{font-size:18px}
+.artist small{display:block;color:var(--ice);font-weight:800;margin-top:2px}
+
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .stat{border:1px solid var(--line);border-radius:13px;padding:14px;background:#07131c}
-.stat strong{font-size:27px;display:block}.stat span{font-size:11px;color:var(--muted)}
-.row{
-display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)
-}
-.row label{flex:1;font-size:13px}.row input{accent-color:var(--ice)}
-.money{
-display:flex;align-items:center;gap:8px;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px
-}
-.money span{flex:1}
-input{
-background:#06121a;border:1px solid var(--line);border-radius:9px;
-padding:10px;color:white;outline:none
-}
+.stat strong{font-size:27px;display:block}
+.stat span{font-size:11px;color:var(--muted)}
+
+.row{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:0}
+.row label{flex:1;font-size:13px}
+.row input{accent-color:var(--ice)}
+
+input[type=text],input[type=number],input[type=email]{width:100%;background:#06121a;border:1px solid var(--line);border-radius:9px;padding:10px;color:white;outline:none}
 input:focus{border-color:var(--ice)}
-.form{display:flex;gap:7px;margin-top:10px}
-.form input{flex:1;width:0}
-.btn{
-background:var(--ice);border:0;border-radius:9px;padding:10px 13px;
-font-weight:850;cursor:pointer;color:#031018
-}
+.form{display:grid;grid-template-columns:1fr auto;gap:7px;margin-top:10px}
+
+.btn{background:var(--ice);border:0;border-radius:9px;padding:10px 13px;font-weight:850;cursor:pointer;color:#031018}
 .btn.alt{background:#162936;color:white;border:1px solid var(--line)}
 .btn.danger{background:#2b1718;color:#ffb0aa;border:1px solid #66302f}
-.bar{height:7px;background:#061018;border-radius:20px;overflow:hidden;margin-top:10px}
-.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--ice),var(--purple))}
+
+.money{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px}
 .total{font-size:28px;font-weight:900;margin-top:13px}
+.bar{height:7px;background:#061018;border-radius:20px;overflow:hidden;margin-top:9px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--ice),var(--purple));width:0}
+.alert{border-color:#66302f}
+.alert h2{color:#ffb0aa}
 .bottom{display:none}
-#login{
-position:fixed;inset:0;z-index:200;display:grid;place-items:center;padding:20px;
-background:radial-gradient(circle at 80% 0,#18394d,#071019 40%,#04080d 80%)
-}
-.loginbox{
-width:min(460px,100%);background:#09161ff5;border:1px solid #31586b;
-border-radius:24px;padding:28px;box-shadow:0 30px 90px #0009
-}
+
+#login{position:fixed;inset:0;z-index:200;background:radial-gradient(circle at 80% 0,#18394d 0,#071019 38%,#04080d 80%);display:grid;place-items:center;padding:20px}
+.loginbox{width:min(460px,100%);background:rgba(9,22,31,.94);border:1px solid #31586b;border-radius:24px;padding:28px;box-shadow:0 30px 90px #0009}
 .loginlogo{font-size:12px;font-weight:950;letter-spacing:.18em;color:var(--ice)}
-.loginbox h1{font-size:38px;line-height:.95;margin:15px 0}
+.loginbox h1{font-size:38px;line-height:.95;margin:15px 0 10px}
 .loginbox p{color:var(--muted);font-size:14px;line-height:1.55}
-.loginbox input{width:100%;margin:8px 0}
+.loginbox input{margin:8px 0}
 .loginbox .btn{width:100%;margin-top:8px}
-.message{margin-top:12px;font-size:12px;min-height:18px}
+.message{margin-top:12px;font-size:12px;color:var(--good);min-height:18px}
 .hidden{display:none!important}
+.accountBtn{margin-left:8px}
+
+.adminOnly{display:none}
+.adminPanel{border-color:#4b3d73}
+.adminGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0}
+.adminStat{border:1px solid var(--line);border-radius:13px;padding:14px;background:#07131c}
+.adminStat b{display:block;font-size:25px}
+.adminStat span{font-size:10px;color:var(--muted)}
+.memberRow{display:grid;grid-template-columns:1.5fr .7fr .7fr .7fr;gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line);font-size:12px}
+.memberRow:last-child{border-bottom:0}
+.tag{display:inline-block;border:1px solid #31586b;border-radius:999px;padding:4px 7px;font-size:9px;color:var(--ice);font-weight:800}
+
+.bookingHero{display:grid;grid-template-columns:1.1fr 1fr;gap:14px}
+.flight{border:1px solid var(--line);border-radius:15px;padding:15px;background:linear-gradient(135deg,#07131c,#0e202d)}
+.flightTop{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.flightCode{font-size:20px;font-weight:950;color:var(--ice)}
+.route{font-size:18px;font-weight:900;margin:5px 0}
+.flightMeta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.flightMeta div{background:#061018;border:1px solid var(--line);border-radius:10px;padding:9px}
+.flightMeta small{display:block;color:var(--muted);font-size:9px;text-transform:uppercase;letter-spacing:.08em}
+.flightMeta b{font-size:13px}
+.bookingBalance{display:flex;justify-content:space-between;align-items:center;padding:15px;border:1px solid #5b4630;border-radius:14px;background:linear-gradient(135deg,#1c160f,#10151b)}
+.bookingBalance strong{font-size:30px;color:var(--sand)}
+
+@media(max-width:800px){
+.bookingHero{display:block}
+.flight{margin-bottom:10px}
+.adminGrid{grid-template-columns:repeat(2,1fr)}
+.memberRow{grid-template-columns:1.4fr .7fr .7fr}
+.memberRow .hideMobile{display:none}
+}
 
 @media(max-width:800px){
 .wrap{width:calc(100% - 20px)}
-.hero{min-height:590px}.hero .wrap{padding-top:85px}
+.hero{min-height:600px}
+.hero .wrap{padding-top:85px}
 .count{grid-template-columns:repeat(4,1fr);gap:5px}
-.count div{padding:10px 3px}.count b{font-size:20px}
-.grid{display:block}.card{margin-bottom:12px}
+.count div{padding:10px 3px}
+.count b{font-size:20px}
+.grid{display:block}
+.card{margin-bottom:12px}
 .tiles,.lineup{grid-template-columns:repeat(2,1fr)}
-.tile{min-height:135px}.artist{min-height:170px}
-.bottom{
-display:flex;position:fixed;z-index:60;bottom:0;left:0;right:0;
-background:#050b12f2;border-top:1px solid var(--line);
-justify-content:space-around;padding:8px 5px 12px;backdrop-filter:blur(16px)
-}
+.tile{min-height:135px}
+.artist{min-height:170px}
+.bottom{display:flex;position:fixed;z-index:60;bottom:0;left:0;right:0;background:#050b12f2;border-top:1px solid var(--line);justify-content:space-around;padding:8px 5px calc(8px + env(safe-area-inset-bottom));backdrop-filter:blur(16px)}
 .bottom a{font-size:9px;color:var(--muted);text-align:center}
-.bottom b{display:block;font-size:17px;color:var(--ice)}
+.bottom b{display:block;font-size:17px;color:var(--ice);margin-bottom:2px}
 .user span{display:none}
 }
 </style>
@@ -159,1021 +147,1249 @@ justify-content:space-around;padding:8px 5px 12px;backdrop-filter:blur(16px)
 <body>
 
 <div id="login">
-<div class="loginbox">
-
-<div class="loginlogo">SNOWBOMBING 27 · PRIVATE TRIP HQ</div>
-
-<h1>Your trip.<br>Your dashboard.</h1>
-
-<p>
-Enter your email and we'll send you a secure one-time login link.
-Your personal kit and spending are saved privately to your account.
-</p>
-
-<input id="loginEmail" type="email" placeholder="Your email address">
-
-<button class="btn" id="loginBtn" onclick="sendLogin()">
-Send login link
-</button>
-
-<div class="message" id="loginMessage"></div>
-
+  <div class="loginbox">
+    <div class="loginlogo">SNOWBOMBING 27 · PRIVATE TRIP HQ</div>
+    <h1>Your trip.<br>Your dashboard.</h1>
+    <p>Enter your email and we'll send you a secure one-time login link. Your personal kit and spending are saved privately to your account.</p>
+    <input id="loginEmail" type="email" placeholder="Your email address" autocomplete="email">
+    <button class="btn" id="loginBtn" onclick="sendLogin()">Send login link</button>
+    <div class="message" id="loginMessage"></div>
+  </div>
 </div>
-</div>
-
 
 <header class="top">
-<div class="wrap topin">
-
-<div class="brand">SNOW<span>BOMBING</span> 27</div>
-
-<div class="user">
-<span>Welcome, <b id="welcome">Guest</b></span>
-<div class="avatar" id="avatar">?</div>
-<button class="btn alt" onclick="logout()">Log out</button>
-</div>
-
-</div>
+  <div class="wrap topin">
+    <div class="brand">SNOW<span>BOMBING</span> 27</div>
+    <div class="user">
+      <span>Welcome, <b id="welcome">Guest</b></span>
+      <div class="avatar" id="avatar">?</div>
+      <button class="btn alt accountBtn" onclick="logout()">Log out</button>
+    </div>
+  </div>
 </header>
 
-
 <section class="hero">
-<div class="wrap">
-
-<div class="eyebrow">
-Mayrhofen · Austria · 04—11 April 2027
-</div>
-
-<h1>SNOWBOMBING<br>2027</h1>
-
-<p>
-Mountains. Music. Memories.
-Your group's private trip HQ for skiing,
-festival plans, kit and spending.
-</p>
-
-<div class="count" id="count"></div>
-
-</div>
+  <div class="wrap">
+    <div class="eyebrow">Mayrhofen · Austria · 04—11 April 2027</div>
+    <h1>SNOWBOMBING<br><span>2027</span></h1>
+    <p>Mountains. Music. Memories. Your group's private trip HQ for skiing, festival plans, kit and spending.</p>
+    <div class="count" id="count"></div>
+  </div>
 </section>
-
 
 <main class="wrap">
 <div class="grid">
 
-
 <section class="card full">
+  <div class="kicker">Your trip</div>
+  <h2>Dashboard</h2>
+  <p>Shared trip information for everyone, with personal kit, spending and favourites kept separate for each attendee.</p>
 
-<div class="kicker">Your trip</div>
-<h2>Dashboard</h2>
+  <div class="tiles">
+    <a class="tile" href="#trip">
+      <b>TRIP DETAILS</b>
+      <small>Flights, transfers & accommodation</small>
+    </a>
 
-<p>
-Shared trip information for everyone, with personal kit,
-spending and favourites kept separate for each attendee.
-</p>
+    <a class="tile" href="#booking">
+      <b>BOOKING</b>
+      <small>Confirmed flights & payment</small>
+    </a>
 
-<div class="tiles">
+    <a class="tile" href="#festival">
+      <b>FESTIVAL</b>
+      <small>Line-up, venues & news</small>
+    </a>
 
-<a class="tile" href="#trip">
-<b>TRIP DETAILS</b>
-<small>Flights, transfers & accommodation</small>
-</a>
+    <a class="tile" href="#plan">
+      <b>ITINERARY</b>
+      <small>Plan the week</small>
+    </a>
 
-<a class="tile" href="#festival">
-<b>FESTIVAL</b>
-<small>Line-up, venues & news</small>
-</a>
+    <a class="tile" href="#group">
+      <b>GROUP</b>
+      <small>Meet the crew</small>
+    </a>
 
-<a class="tile" href="#plan">
-<b>ITINERARY</b>
-<small>Plan the week</small>
-</a>
-
-<a class="tile" href="#group">
-<b>GROUP</b>
-<small>Meet the crew</small>
-</a>
-
-</div>
+    <a class="tile adminOnly" id="adminTile" href="#admin">
+      <b>ADMIN</b>
+      <small>Trip management</small>
+    </a>
+  </div>
 </section>
 
+<section class="card full" id="booking">
+  <div class="kicker">Confirmed booking</div>
+  <h2>Your Snowbombing package</h2>
+  <p>Hotel Berghof · Family Suite for 2 · Festival wristband · 6-day Mayrhofen lift pass.</p>
+
+  <div class="bookingHero">
+
+    <div>
+
+      <div class="flight">
+        <div class="flightTop">
+          <div>
+            <div class="flightCode">EZY2907</div>
+            <div class="route">Bristol → Innsbruck</div>
+          </div>
+          <span class="tag">OUTBOUND · SUN 04 APR</span>
+        </div>
+
+        <div class="flightMeta">
+          <div>
+            <small>Depart</small>
+            <b>14:20 · Bristol</b>
+          </div>
+          <div>
+            <small>Arrive</small>
+            <b>17:15 · Innsbruck</b>
+          </div>
+          <div>
+            <small>Bag drop</small>
+            <b>11:20–13:20</b>
+          </div>
+          <div>
+            <small>Cabin bag</small>
+            <b>1 × under-seat</b>
+          </div>
+        </div>
+      </div>
+
+      <div class="flight">
+        <div class="flightTop">
+          <div>
+            <div class="flightCode">EZY2908</div>
+            <div class="route">Innsbruck → Bristol</div>
+          </div>
+          <span class="tag">RETURN · SUN 11 APR</span>
+        </div>
+
+        <div class="flightMeta">
+          <div>
+            <small>Depart</small>
+            <b>18:00 · Innsbruck</b>
+          </div>
+          <div>
+            <small>Arrive</small>
+            <b>19:05 · Bristol</b>
+          </div>
+          <div>
+            <small>Bag drop</small>
+            <b>16:00–17:20</b>
+          </div>
+          <div>
+            <small>Cabin bag</small>
+            <b>1 × under-seat</b>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+
+      <div class="bookingBalance">
+        <div>
+          <small style="color:var(--muted)">BALANCE REMAINING</small>
+          <strong>£1,508</strong>
+        </div>
+
+        <div style="text-align:right">
+          <b>Due 1 Mar 2027</b>
+          <small style="display:block;color:var(--muted);margin-top:3px">
+            £50 paid · £1,558 total
+          </small>
+        </div>
+      </div>
+
+      <div class="money">
+        <span>Accommodation</span>
+        <b>Hotel Berghof · £1,498</b>
+      </div>
+
+      <div class="money">
+        <span>Included</span>
+        <b>Wristband + 6-day lift pass</b>
+      </div>
+
+      <div class="money">
+        <span>Not included</span>
+        <b>Ski hire · Mountain Brunch</b>
+      </div>
+
+      <p style="margin-top:12px">
+        Current booking shows one small under-seat cabin bag per passenger.
+        Hold luggage and additional cabin bags can be added separately.
+      </p>
+
+    </div>
+  </div>
+</section>
 
 <section class="card wide" id="festival">
+  <div class="kicker">Official updates</div>
+  <h2>Snowbombing 2027 Line-up</h2>
+  <p>Currently announced: Bicep Live, Fatboy Slim and Rossi. More names will be added as Snowbombing announces them officially.</p>
 
-<div class="kicker">Official updates</div>
-<h2>Snowbombing 2027 Line-up</h2>
+  <div class="lineup">
 
-<p>
-Currently announced: Bicep Live, Fatboy Slim and Rossi.
-More names will be added as Snowbombing announces them officially.
-</p>
+    <div class="artist">
+      <div>
+        <b>BICEP</b>
+        <small>LIVE</small>
+      </div>
+    </div>
 
-<div class="lineup">
+    <div class="artist">
+      <div>
+        <b>FATBOY SLIM</b>
+        <small>ARTIST</small>
+      </div>
+    </div>
 
-<div class="artist"><div><b>BICEP</b><small>LIVE</small></div></div>
-<div class="artist"><div><b>FATBOY SLIM</b><small>ARTIST</small></div></div>
-<div class="artist"><div><b>ROSSI</b><small>ARTIST</small></div></div>
-<div class="artist"><div><b>MORE</b><small>TO BE ANNOUNCED</small></div></div>
+    <div class="artist">
+      <div>
+        <b>ROSSI</b>
+        <small>ARTIST</small>
+      </div>
+    </div>
 
-</div>
+    <div class="artist">
+      <div>
+        <b>MORE</b>
+        <small>TO BE ANNOUNCED</small>
+      </div>
+    </div>
 
-<p>
-<a class="btn" href="https://snowbombing.com/" target="_blank">
-Official Snowbombing site ↗
-</a>
-</p>
+  </div>
 
+  <p style="margin-top:12px">
+    <a class="btn" href="https://snowbombing.com/" target="_blank">
+      Official Snowbombing site ↗
+    </a>
+  </p>
 </section>
-
 
 <section class="card">
+  <div class="kicker">My dashboard</div>
+  <h2>Personal</h2>
 
-<div class="kicker">My dashboard</div>
-<h2>Personal</h2>
+  <div class="stats">
+    <div class="stat">
+      <strong id="kitPct">0%</strong>
+      <span>Kit ready</span>
+    </div>
 
-<div class="stats">
+    <div class="stat">
+      <strong id="mySpend">£0</strong>
+      <span>My spending</span>
+    </div>
+  </div>
 
-<div class="stat">
-<strong id="kitPct">0%</strong>
-<span>Kit ready</span>
-</div>
-
-<div class="stat">
-<strong id="mySpend">£0</strong>
-<span>My spending</span>
-</div>
-
-</div>
-
-<div class="bar"><i id="kitBar"></i></div>
-
+  <div class="bar">
+    <i id="kitBar"></i>
+  </div>
 </section>
-
 
 <section class="card" id="kit">
+  <div class="kicker">Private</div>
+  <h2>My Kit List</h2>
+  <p>Only you can see and change your personal kit list.</p>
 
-<div class="kicker">Private</div>
-<h2>My Kit List</h2>
+  <div id="kitList">
+    <div style="color:var(--muted);font-size:13px">Loading…</div>
+  </div>
 
-<p>Only you can see and change your personal kit list.</p>
-
-<div id="kitList">Loading…</div>
-
-<div class="form">
-<input id="newKit" type="text" placeholder="Add item">
-<button class="btn" onclick="addKit()">Add</button>
-</div>
-
+  <div class="form">
+    <input id="newKit" type="text" placeholder="Add item">
+    <button class="btn" onclick="addKit()">Add</button>
+  </div>
 </section>
-
 
 <section class="card" id="spending">
+  <div class="kicker">Private</div>
+  <h2>My Spending</h2>
+  <p>Only you can see your personal spending.</p>
 
-<div class="kicker">Private</div>
-<h2>My Spending</h2>
+  <div id="spendList">
+    <div style="color:var(--muted);font-size:13px">Loading…</div>
+  </div>
 
-<p>Only you can see your personal spending.</p>
+  <div class="form">
+    <input id="spendName" type="text" placeholder="What did you spend on?">
+    <input id="spendValue" type="number" step="0.01" placeholder="£">
+  </div>
 
-<div id="spendList">Loading…</div>
+  <button class="btn" style="margin-top:8px;width:100%" onclick="addSpend()">
+    Add spending
+  </button>
 
-<div class="form">
-<input id="spendName" type="text" placeholder="What did you spend on?">
-<input id="spendValue" type="number" step="0.01" placeholder="£">
-</div>
-
-<button class="btn" style="margin-top:8px;width:100%" onclick="addSpend()">
-Add spending
-</button>
-
-<div class="total" id="spendTotal">£0</div>
-
+  <div class="total" id="spendTotal">£0</div>
 </section>
 
-
-<section class="card">
-
-<div class="kicker">Private</div>
-<h2>My Favourites</h2>
-
-<p>Save the artists you most want to see.</p>
-
-<div id="favList"></div>
-
+<section class="card" id="favourites">
+  <div class="kicker">Private</div>
+  <h2>My Favourites</h2>
+  <p>Save the artists you most want to see. This is private to your account.</p>
+  <div id="favList"></div>
 </section>
-
 
 <section class="card wide" id="plan">
+  <div class="kicker">Shared</div>
+  <h2>Itinerary</h2>
 
-<div class="kicker">Shared</div>
-<h2>Itinerary</h2>
+  <div class="row">
+    <b>04 APR</b>
+    <label>Arrival · transfer · check-in · opening events</label>
+  </div>
 
-<div class="row"><b>04 APR</b><label>Arrival · transfer · check-in · opening events</label></div>
-<div class="row"><b>05 APR</b><label>Festival day · skiing · evening events</label></div>
-<div class="row"><b>06 APR</b><label>Skiing · festival</label></div>
-<div class="row"><b>07 APR</b><label>Mountain day · festival</label></div>
-<div class="row"><b>08 APR</b><label>Skiing · festival</label></div>
-<div class="row"><b>09 APR</b><label>Skiing · festival</label></div>
-<div class="row"><b>10 APR</b><label>Final festival day · closing events</label></div>
-<div class="row"><b>11 APR</b><label>Check-out · transfer · home</label></div>
+  <div class="row">
+    <b>05 APR</b>
+    <label>Festival day · skiing · evening events</label>
+  </div>
 
+  <div class="row">
+    <b>06 APR</b>
+    <label>Skiing · festival</label>
+  </div>
+
+  <div class="row">
+    <b>07 APR</b>
+    <label>Mountain day · festival</label>
+  </div>
+
+  <div class="row">
+    <b>08 APR</b>
+    <label>Skiing · festival</label>
+  </div>
+
+  <div class="row">
+    <b>09 APR</b>
+    <label>Skiing · festival</label>
+  </div>
+
+  <div class="row">
+    <b>10 APR</b>
+    <label>Final festival day · closing events</label>
+  </div>
+
+  <div class="row">
+    <b>11 APR</b>
+    <label>Check-out · transfer · home</label>
+  </div>
 </section>
-
 
 <section class="card" id="trip">
+  <div class="kicker">Shared</div>
+  <h2>Travel</h2>
 
-<div class="kicker">Shared</div>
-<h2>Travel</h2>
+  <div class="money">
+    <span>Outbound</span>
+    <b>Bristol → Innsbruck · 14:20</b>
+  </div>
 
-<div class="money"><span>Festival</span><b>5–10 Apr</b></div>
-<div class="money"><span>Arrival</span><b>4 Apr</b></div>
-<div class="money"><span>Departure</span><b>11 Apr</b></div>
-<div class="money"><span>Airport</span><b>Innsbruck / Munich</b></div>
+  <div class="money">
+    <span>Return</span>
+    <b>Innsbruck → Bristol · 18:00</b>
+  </div>
 
-<p>
-Snowbombing currently lists arrival transfers from Innsbruck
-and Munich and return transfers for 10–11 April.
-</p>
+  <div class="money">
+    <span>Flight numbers</span>
+    <b>EZY2907 / EZY2908</b>
+  </div>
 
+  <div class="money">
+    <span>Festival</span>
+    <b>5–10 Apr</b>
+  </div>
+
+  <p style="margin-top:12px">
+    Arrival is Sunday 4 April and departure is Sunday 11 April.
+    Transfer arrangements to/from Mayrhofen can be added when confirmed.
+  </p>
 </section>
-
 
 <section class="card">
+  <div class="kicker">Confirmed</div>
+  <h2>Accommodation</h2>
+  <p>Hotel Berghof · Central Mayrhofen.</p>
 
-<div class="kicker">Shared</div>
-<h2>Accommodation</h2>
+  <div class="money">
+    <span>Room</span>
+    <b>Family Suite · 2 people</b>
+  </div>
 
-<p>Add your hotel, apartment or chalet details once confirmed.</p>
+  <div class="money">
+    <span>Check-in</span>
+    <b>4 Apr 2027</b>
+  </div>
 
-<div class="money"><span>Location</span><b>Mayrhofen</b></div>
-<div class="money"><span>Check-in</span><b>4 Apr</b></div>
-<div class="money"><span>Check-out</span><b>11 Apr</b></div>
+  <div class="money">
+    <span>Check-out</span>
+    <b>11 Apr 2027</b>
+  </div>
 
+  <div class="money">
+    <span>Accommodation cost</span>
+    <b>£1,498</b>
+  </div>
 </section>
-
 
 <section class="card" id="group">
+  <div class="kicker">Shared</div>
+  <h2>Group</h2>
+  <p>People with accounts on the trip will appear here.</p>
 
-<div class="kicker">Shared</div>
-<h2>Group</h2>
-
-<p>People with accounts on the trip will appear here.</p>
-
-<div id="groupList">Loading…</div>
-
+  <div id="groupList">
+    <div style="color:var(--muted);font-size:13px">Loading…</div>
+  </div>
 </section>
 
+<section class="card full adminOnly adminPanel" id="admin">
+  <div class="kicker">Admin · Private</div>
+  <h2>Trip Admin</h2>
+  <p>Owner controls for group membership, kit progress, spending and trip information.</p>
 
-<section class="card full">
+  <div class="adminGrid">
 
-<div class="kicker">Important</div>
-<h2>Useful information</h2>
+    <div class="adminStat">
+      <b id="adminMembers">0</b>
+      <span>MEMBERS</span>
+    </div>
 
-<p>
-<b>Emergency: 112</b> · Keep insurance, GHIC/EHIC
-and accommodation details available offline.
-</p>
+    <div class="adminStat">
+      <b id="adminKit">0%</b>
+      <span>AVERAGE KIT READY</span>
+    </div>
 
-<a class="btn alt" href="https://snowbombing.com/contact" target="_blank">
-Official FAQs & contact ↗
-</a>
+    <div class="adminStat">
+      <b id="adminSpend">£0</b>
+      <span>GROUP SPENDING</span>
+    </div>
 
-<a class="btn alt" href="https://snowbombing.com/extras" target="_blank">
-Official ski hire ↗
-</a>
+    <div class="adminStat">
+      <b>5–10 APR</b>
+      <span>FESTIVAL DATES</span>
+    </div>
 
+  </div>
+
+  <div id="adminMembersList">
+    <div style="color:var(--muted);font-size:13px">
+      Loading admin data…
+    </div>
+  </div>
+
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:15px">
+
+    <a class="btn alt" href="#booking">
+      Edit booking details
+    </a>
+
+    <a class="btn alt" href="#plan">
+      Edit shared itinerary
+    </a>
+
+    <a class="btn alt" href="#festival">
+      Manage line-up
+    </a>
+
+  </div>
 </section>
 
+<section class="card full" id="emergency">
+  <div class="kicker">Important</div>
+  <h2>Useful information</h2>
+
+  <p>
+    <b>Emergency: 112</b> · Keep insurance, GHIC/EHIC and accommodation details available offline.
+  </p>
+
+  <a class="btn alt" href="https://snowbombing.com/contact" target="_blank">
+    Official FAQs & contact ↗
+  </a>
+
+  <a class="btn alt" href="https://snowbombing.com/extras" target="_blank">
+    Official ski hire ↗
+  </a>
+</section>
 
 </div>
 </main>
-
 
 <footer style="text-align:center;color:#738894;padding:20px 0 70px;font-size:11px">
 SNOWBOMBING 2027 · MAYRHOFEN · GOOD PEOPLE. GREAT MOUNTAINS.
 </footer>
 
-
 <nav class="bottom">
-<a href="#"><b>⌂</b>Home</a>
-<a href="#kit"><b>🎿</b>My Kit</a>
-<a href="#spending"><b>£</b>Spending</a>
-<a href="#festival"><b>♫</b>Line-up</a>
-<a href="#plan"><b>☰</b>Plan</a>
+  <a href="#"><b>⌂</b>Home</a>
+  <a href="#kit"><b>🎿</b>My Kit</a>
+  <a href="#spending"><b>£</b>Spending</a>
+  <a href="#festival"><b>♫</b>Line-up</a>
+  <a href="#plan"><b>☰</b>Plan</a>
 </nav>
-
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
 
-const SUPABASE_URL =
-"https://jymlgawzwkterkrujrgz.supabase.co";
+const SUPABASE_URL="https://jymlgawzwkterkrujrgz.supabase.co";
 
-const SUPABASE_KEY =
-"sb_publishable_TvWQw058QBQA8lrXkN_EYw_oex9WDFt";
+const SUPABASE_KEY="sb_publishable_TvWQw058QBQA8lrXkN_EYw_oex9WDFt";
 
-const client =
-window.supabase.createClient(
-SUPABASE_URL,
-SUPABASE_KEY
+const client=window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY,
+  {
+    auth:{
+      persistSession:true,
+      autoRefreshToken:true,
+      detectSessionInUrl:true,
+      flowType:"implicit"
+    }
+  }
 );
 
 let user=null;
 let kit=[];
 let spend=[];
 let favourites=[];
-
+let isAdmin=false;
 
 const defaults=[
-"Ski jacket",
-"Ski trousers",
-"Base layers",
-"Mid layer / fleece",
-"Ski socks",
-"Ski gloves",
-"Ski goggles",
-"Ski helmet",
-"Ski boots",
-"Neck warmer",
-"Sunglasses",
-"SPF / lip balm",
-"Casual tops",
-"Underwear",
-"Trainers"
+  "Ski jacket",
+  "Ski trousers",
+  "Base layers",
+  "Mid layer / fleece",
+  "Ski socks",
+  "Ski gloves",
+  "Ski goggles",
+  "Ski helmet",
+  "Ski boots",
+  "Neck warmer",
+  "Sunglasses",
+  "SPF / lip balm",
+  "Casual tops",
+  "Underwear",
+  "Trainers"
 ];
 
-
 function esc(s){
-return String(s).replace(/[&<>"']/g,m=>({
-"&":"&amp;",
-"<":"&lt;",
-">":"&gt;",
-'"':"&quot;",
-"'":"&#039;"
-}[m]));
+  return String(s).replace(
+    /[&<>"']/g,
+    m=>({
+      "&":"&amp;",
+      "<":"&lt;",
+      ">":"&gt;",
+      '"':"&quot;",
+      "'":"&#039;"
+    }[m])
+  )
 }
-
 
 function setMessage(text,ok=true){
-
-const el=document.getElementById("loginMessage");
-
-el.textContent=text;
-el.style.color=ok?"var(--good)":"var(--danger)";
-
+  const el=document.getElementById("loginMessage");
+  el.textContent=text;
+  el.style.color=ok?"var(--good)":"var(--danger)";
 }
-
 
 async function sendLogin(){
 
-const email=
-document.getElementById("loginEmail")
-.value.trim();
+  const email=document.getElementById("loginEmail").value.trim();
 
-if(!email){
-setMessage("Enter your email address.",false);
-return;
+  if(!email){
+    setMessage("Enter your email address.",false);
+    return;
+  }
+
+  const btn=document.getElementById("loginBtn");
+
+  btn.disabled=true;
+  btn.textContent="Sending…";
+
+  const {error}=await client.auth.signInWithOtp({
+    email,
+    options:{
+      emailRedirectTo:
+        window.location.origin+window.location.pathname
+    }
+  });
+
+  btn.disabled=false;
+  btn.textContent="Send login link";
+
+  if(error){
+    setMessage(error.message,false);
+  }else{
+    setMessage(
+      "Check your email. Tap the login link to open your private dashboard."
+    );
+  }
 }
-
-const btn=
-document.getElementById("loginBtn");
-
-btn.disabled=true;
-btn.textContent="Sending…";
-
-try{
-
-const result=
-await client.auth.signInWithOtp({
-
-email:email,
-
-options:{
-emailRedirectTo:
-"https://aaronthoros.github.io/Snowbombing-2027/"
-}
-
-});
-
-
-if(result.error){
-
-setMessage(
-"Supabase error: "+result.error.message,
-false
-);
-
-}else{
-
-setMessage(
-"Login link sent! Check your email."
-);
-
-}
-
-}catch(error){
-
-setMessage(
-"Connection error: "+
-(error.message||String(error)),
-false
-);
-
-}
-
-btn.disabled=false;
-btn.textContent="Send login link";
-
-}
-
 
 async function loadData(){
 
-if(!user)return;
+  if(!user)return;
 
-try{
+  const [k,s,f,g,p]=await Promise.all([
 
-const results=await Promise.all([
+    client
+      .from("kit_items")
+      .select("*")
+      .eq("user_id",user.id)
+      .order("id"),
 
-client.from("kit_items")
-.select("*")
-.eq("user_id",user.id)
-.order("id"),
+    client
+      .from("spending")
+      .select("*")
+      .eq("user_id",user.id)
+      .order("id",{ascending:false}),
 
-client.from("spending")
-.select("*")
-.eq("user_id",user.id)
-.order("id",{ascending:false}),
+    client
+      .from("favourite_artists")
+      .select("*")
+      .eq("user_id",user.id)
+      .order("artist_name"),
 
-client.from("favourite_artists")
-.select("*")
-.eq("user_id",user.id)
-.order("artist_name"),
+    client
+      .from("profiles")
+      .select("id,display_name,is_admin")
+      .order("display_name"),
 
-client.from("profiles")
-.select("id,display_name")
-.order("display_name")
+    client
+      .from("profiles")
+      .select("id,is_admin")
+      .eq("id",user.id)
+      .maybeSingle()
 
-]);
+  ]);
 
+  kit=k.data||[];
+  spend=s.data||[];
+  favourites=f.data||[];
 
-const k=results[0];
-const s=results[1];
-const f=results[2];
-const g=results[3];
+  isAdmin=!!p.data?.is_admin;
 
+  document
+    .querySelectorAll(".adminOnly")
+    .forEach(
+      el=>el.style.display=
+        isAdmin
+          ? (el.id==="adminTile"?"flex":"block")
+          : "none"
+    );
 
-if(k.error)throw k.error;
-if(s.error)throw s.error;
-if(f.error)throw f.error;
-if(g.error)throw g.error;
+  if(!k.data?.length && !k.error){
 
+    const rows=defaults.map(
+      item=>({
+        user_id:user.id,
+        item_name:item,
+        quantity:1,
+        completed:false
+      })
+    );
 
-kit=k.data||[];
-spend=s.data||[];
-favourites=f.data||[];
+    const inserted=
+      await client
+        .from("kit_items")
+        .insert(rows)
+        .select("*");
 
+    kit=inserted.data||[];
+  }
 
-if(!kit.length){
+  render();
 
-const rows=defaults.map(item=>({
+  renderGroup(g.data||[]);
 
-user_id:user.id,
-item_name:item,
-quantity:1,
-completed:false
-
-}));
-
-const inserted=
-await client
-.from("kit_items")
-.insert(rows)
-.select("*");
-
-if(!inserted.error){
-kit=inserted.data||[];
+  if(isAdmin){
+    await loadAdmin();
+  }
 }
 
+async function loadAdmin(){
+
+  const [profiles,kits,spends]=await Promise.all([
+
+    client
+      .from("profiles")
+      .select("id,display_name,is_admin")
+      .order("display_name"),
+
+    client
+      .from("kit_items")
+      .select("id,user_id,completed"),
+
+    client
+      .from("spending")
+      .select("id,user_id,amount")
+
+  ]);
+
+  const members=profiles.data||[];
+  const allKit=kits.data||[];
+  const allSpend=spends.data||[];
+
+  document.getElementById("adminMembers").textContent=
+    members.length;
+
+  const pct=
+    allKit.length
+      ? Math.round(
+          allKit.filter(x=>x.completed).length/
+          allKit.length*100
+        )
+      : 0;
+
+  document.getElementById("adminKit").textContent=
+    pct+"%";
+
+  document.getElementById("adminSpend").textContent=
+    "£"+
+    allSpend
+      .reduce((a,x)=>a+Number(x.amount||0),0)
+      .toFixed(0);
+
+  const box=document.getElementById("adminMembersList");
+
+  box.innerHTML="";
+
+  members.forEach(m=>{
+
+    const mk=
+      allKit.filter(
+        x=>x.user_id===m.id
+      );
+
+    const ms=
+      allSpend.filter(
+        x=>x.user_id===m.id
+      );
+
+    const kp=
+      mk.length
+        ? Math.round(
+            mk.filter(x=>x.completed).length/
+            mk.length*100
+          )
+        : 0;
+
+    const total=
+      ms.reduce(
+        (a,x)=>a+Number(x.amount||0),
+        0
+      );
+
+    const r=document.createElement("div");
+
+    r.className="memberRow";
+
+    r.innerHTML=
+      '<b>'+
+      esc(m.display_name||"Snowbombing guest")+
+      '</b>'+
+      '<span>'+kp+'% kit</span>'+
+      '<span>£'+total.toFixed(0)+'</span>'+
+      '<span class="tag">'+
+      (m.is_admin?"ADMIN":"MEMBER")+
+      '</span>';
+
+    box.appendChild(r);
+
+  });
+
+  if(!members.length){
+
+    box.innerHTML=
+      '<div style="color:var(--muted);font-size:13px">'+
+      'No members found.'+
+      '</div>';
+
+  }
 }
-
-
-render();
-renderGroup(g.data||[]);
-
-}catch(error){
-
-console.error(error);
-
-setMessage(
-"Database error: "+
-(error.message||String(error)),
-false
-);
-
-}
-
-}
-
 
 function render(){
 
-const name=
-user?.user_metadata?.full_name||
-user?.email?.split("@")[0]||
-"Guest";
+  const name=
+    user?.user_metadata?.full_name ||
+    user?.email?.split("@")[0] ||
+    "Guest";
 
-document.getElementById("welcome").textContent=name;
+  document.getElementById("welcome").textContent=name;
 
-document.getElementById("avatar").textContent=
-name.slice(0,2).toUpperCase();
+  document.getElementById("avatar").textContent=
+    name.slice(0,2).toUpperCase();
 
+  const k=document.getElementById("kitList");
 
-const k=
-document.getElementById("kitList");
+  k.innerHTML="";
 
-k.innerHTML="";
+  kit.forEach(x=>{
 
+    const r=document.createElement("div");
 
-if(!kit.length){
-k.innerHTML='<p>No kit items yet.</p>';
+    r.className="row";
+
+    r.innerHTML=
+      '<input type="checkbox" '+
+      (x.completed?"checked":"")+
+      '>'+
+      '<label>'+
+      esc(x.item_name)+
+      '</label>'+
+      '<span>×'+
+      x.quantity+
+      '</span>'+
+      '<button class="btn danger" style="padding:6px 8px" title="Remove">×</button>';
+
+    r.querySelector("input").onchange=
+      async e=>{
+
+        await client
+          .from("kit_items")
+          .update({
+            completed:e.target.checked
+          })
+          .eq("id",x.id)
+          .eq("user_id",user.id);
+
+        x.completed=e.target.checked;
+
+        render();
+      };
+
+    r.querySelector("button").onclick=
+      async()=>{
+
+        await client
+          .from("kit_items")
+          .delete()
+          .eq("id",x.id)
+          .eq("user_id",user.id);
+
+        kit=kit.filter(
+          i=>i.id!==x.id
+        );
+
+        render();
+      };
+
+    k.appendChild(r);
+
+  });
+
+  const done=
+    kit.filter(x=>x.completed).length;
+
+  const p=
+    Math.round(
+      done/(kit.length||1)*100
+    );
+
+  document.getElementById("kitPct").textContent=
+    p+"%";
+
+  document.getElementById("kitBar").style.width=
+    p+"%";
+
+  const s=document.getElementById("spendList");
+
+  s.innerHTML="";
+
+  spend.forEach(x=>{
+
+    const r=document.createElement("div");
+
+    r.className="money";
+
+    r.innerHTML=
+      "<span>"+
+      esc(x.description)+
+      "</span>"+
+      "<b>£"+
+      Number(x.amount).toFixed(2)+
+      "</b>"+
+      "<button class='btn danger' style='padding:5px 8px;margin-left:8px'>×</button>";
+
+    r.querySelector("button").onclick=
+      async()=>{
+
+        await client
+          .from("spending")
+          .delete()
+          .eq("id",x.id)
+          .eq("user_id",user.id);
+
+        spend=
+          spend.filter(
+            i=>i.id!==x.id
+          );
+
+        render();
+      };
+
+    s.appendChild(r);
+
+  });
+
+  const total=
+    spend.reduce(
+      (a,x)=>a+Number(x.amount),
+      0
+    );
+
+  document.getElementById("mySpend").textContent=
+    "£"+total.toFixed(0);
+
+  document.getElementById("spendTotal").textContent=
+    "£"+total.toFixed(2);
+
+  const f=document.getElementById("favList");
+
+  f.innerHTML="";
+
+  [
+    "Bicep Live",
+    "Fatboy Slim",
+    "Rossi"
+  ].forEach(artist=>{
+
+    const saved=
+      favourites.some(
+        x=>x.artist_name===artist
+      );
+
+    const r=document.createElement("div");
+
+    r.className="row";
+
+    r.innerHTML=
+      '<label>'+
+      artist+
+      '</label>'+
+      '<button class="btn '+
+      (saved?"alt":"")+
+      '">'+
+      (saved?"★ Saved":"☆ Favourite")+
+      '</button>';
+
+    r.querySelector("button").onclick=
+      async()=>{
+
+        if(saved){
+
+          await client
+            .from("favourite_artists")
+            .delete()
+            .eq("user_id",user.id)
+            .eq("artist_name",artist);
+
+          favourites=
+            favourites.filter(
+              x=>x.artist_name!==artist
+            );
+
+        }else{
+
+          const {data}=
+            await client
+              .from("favourite_artists")
+              .insert({
+                user_id:user.id,
+                artist_name:artist
+              })
+              .select("*")
+              .single();
+
+          if(data){
+            favourites.push(data);
+          }
+        }
+
+        render();
+
+      };
+
+    f.appendChild(r);
+
+  });
 }
-
-
-kit.forEach(x=>{
-
-const r=document.createElement("div");
-
-r.className="row";
-
-r.innerHTML=
-'<input type="checkbox" '+(x.completed?"checked":"")+'>'+
-'<label>'+esc(x.item_name)+'</label>'+
-'<span>×'+x.quantity+'</span>'+
-'<button class="btn danger" style="padding:6px 8px">×</button>';
-
-
-r.querySelector("input").onchange=
-async e=>{
-
-const result=
-await client
-.from("kit_items")
-.update({completed:e.target.checked})
-.eq("id",x.id)
-.eq("user_id",user.id);
-
-if(!result.error){
-x.completed=e.target.checked;
-render();
-}
-
-};
-
-
-r.querySelector("button").onclick=
-async()=>{
-
-const result=
-await client
-.from("kit_items")
-.delete()
-.eq("id",x.id)
-.eq("user_id",user.id);
-
-if(!result.error){
-
-kit=kit.filter(i=>i.id!==x.id);
-
-render();
-
-}
-
-};
-
-
-k.appendChild(r);
-
-});
-
-
-const done=
-kit.filter(x=>x.completed).length;
-
-const pct=
-Math.round(
-done/(kit.length||1)*100
-);
-
-document.getElementById("kitPct")
-.textContent=pct+"%";
-
-document.getElementById("kitBar")
-.style.width=pct+"%";
-
-
-const s=
-document.getElementById("spendList");
-
-s.innerHTML="";
-
-if(!spend.length){
-s.innerHTML='<p>No spending added yet.</p>';
-}
-
-
-spend.forEach(x=>{
-
-const r=document.createElement("div");
-
-r.className="money";
-
-r.innerHTML=
-"<span>"+esc(x.description)+"</span>"+
-"<b>£"+Number(x.amount).toFixed(2)+"</b>"+
-"<button class='btn danger' style='padding:5px 8px'>×</button>";
-
-
-r.querySelector("button").onclick=
-async()=>{
-
-const result=
-await client
-.from("spending")
-.delete()
-.eq("id",x.id)
-.eq("user_id",user.id);
-
-if(!result.error){
-
-spend=spend.filter(i=>i.id!==x.id);
-
-render();
-
-}
-
-};
-
-s.appendChild(r);
-
-});
-
-
-const total=
-spend.reduce(
-(a,x)=>a+Number(x.amount),
-0
-);
-
-document.getElementById("mySpend")
-.textContent="£"+total.toFixed(0);
-
-document.getElementById("spendTotal")
-.textContent="£"+total.toFixed(2);
-
-
-const f=
-document.getElementById("favList");
-
-f.innerHTML="";
-
-
-[
-"Bicep Live",
-"Fatboy Slim",
-"Rossi"
-].forEach(artist=>{
-
-const saved=
-favourites.some(
-x=>x.artist_name===artist
-);
-
-const r=document.createElement("div");
-
-r.className="row";
-
-r.innerHTML=
-"<label>"+artist+"</label>"+
-"<button class='btn "+(saved?"alt":"")+"'>"+
-(saved?"★ Saved":"☆ Favourite")+
-"</button>";
-
-
-r.querySelector("button").onclick=
-async()=>{
-
-if(saved){
-
-const result=
-await client
-.from("favourite_artists")
-.delete()
-.eq("user_id",user.id)
-.eq("artist_name",artist);
-
-if(!result.error){
-
-favourites=
-favourites.filter(
-x=>x.artist_name!==artist
-);
-
-}
-
-}else{
-
-const result=
-await client
-.from("favourite_artists")
-.insert({
-user_id:user.id,
-artist_name:artist
-})
-.select("*")
-.single();
-
-if(!result.error&&result.data){
-favourites.push(result.data);
-}
-
-}
-
-render();
-
-};
-
-f.appendChild(r);
-
-});
-
-}
-
 
 function renderGroup(profiles){
 
-const g=
-document.getElementById("groupList");
+  const g=document.getElementById("groupList");
 
-g.innerHTML="";
+  g.innerHTML="";
 
-profiles.forEach(p=>{
+  profiles.forEach(p=>{
 
-const r=document.createElement("div");
+    const r=document.createElement("div");
 
-r.className="row";
+    r.className="row";
 
-r.innerHTML=
-"<label>"+
-esc(p.display_name||"Snowbombing guest")+
-"</label>"+
-(p.id===user.id?
-"<small style='color:var(--ice)'>You</small>":"");
+    r.innerHTML=
+      "<label>"+
+      esc(p.display_name||"Snowbombing guest")+
+      "</label>"+
+      (
+        p.id===user.id
+          ? "<small style='color:var(--ice)'>You</small>"
+          : ""
+      );
 
-g.appendChild(r);
+    g.appendChild(r);
 
-});
+  });
 
-if(!profiles.length){
+  if(!profiles.length){
 
-g.innerHTML=
-'<p>No group members yet.</p>';
+    g.innerHTML=
+      '<div style="color:var(--muted);font-size:13px">'+
+      'No group members yet.'+
+      '</div>';
 
+  }
 }
-
-}
-
 
 async function addKit(){
 
-const input=
-document.getElementById("newKit");
+  const input=
+    document.getElementById("newKit");
 
-const value=input.value.trim();
+  const v=
+    input.value.trim();
 
-if(!value)return;
+  if(!v)return;
 
-const result=
-await client
-.from("kit_items")
-.insert({
-user_id:user.id,
-item_name:value,
-quantity:1,
-completed:false
-})
-.select("*")
-.single();
+  const {data,error}=
+    await client
+      .from("kit_items")
+      .insert({
+        user_id:user.id,
+        item_name:v,
+        quantity:1,
+        completed:false
+      })
+      .select("*")
+      .single();
 
-if(!result.error&&result.data){
+  if(!error&&data){
 
-kit.push(result.data);
+    kit.push(data);
 
-input.value="";
+    input.value="";
 
-render();
-
-}else{
-
-setMessage(
-"Could not add kit item: "+
-(result.error?.message||"Unknown error"),
-false
-);
-
+    render();
+  }
 }
-
-}
-
 
 async function addSpend(){
 
-const name=
-document.getElementById("spendName")
-.value.trim();
+  const n=
+    document.getElementById("spendName")
+      .value.trim();
 
-const amount=
-Number(
-document.getElementById("spendValue").value
-);
+  const v=
+    Number(
+      document.getElementById("spendValue")
+        .value
+    );
 
-if(!name||!amount)return;
+  if(!n||!v)return;
 
-const result=
-await client
-.from("spending")
-.insert({
-user_id:user.id,
-description:name,
-amount:amount
-})
-.select("*")
-.single();
+  const {data,error}=
+    await client
+      .from("spending")
+      .insert({
+        user_id:user.id,
+        description:n,
+        amount:v
+      })
+      .select("*")
+      .single();
 
-if(!result.error&&result.data){
+  if(!error&&data){
 
-spend.unshift(result.data);
+    spend.unshift(data);
 
-document.getElementById("spendName").value="";
-document.getElementById("spendValue").value="";
+    document.getElementById("spendName")
+      .value="";
 
-render();
+    document.getElementById("spendValue")
+      .value="";
 
-}else{
-
-setMessage(
-"Could not add spending: "+
-(result.error?.message||"Unknown error"),
-false
-);
-
+    render();
+  }
 }
-
-}
-
 
 async function logout(){
 
-await client.auth.signOut();
+  await client.auth.signOut();
 
 }
-
 
 function showApp(){
 
-document
-.getElementById("login")
-.classList
-.add("hidden");
+  document
+    .getElementById("login")
+    .classList.add("hidden");
 
 }
-
 
 function showLogin(){
 
-document
-.getElementById("login")
-.classList
-.remove("hidden");
+  document
+    .getElementById("login")
+    .classList.remove("hidden");
 
 }
-
 
 async function initAuth(){
 
-try{
+  client.auth.onAuthStateChange(
+    async(event,session)=>{
 
-const result=
-await client.auth.getSession();
+      if(session){
 
-if(result.error){
+        user=session.user;
 
-setMessage(
-"Supabase error: "+
-result.error.message,
-false
-);
+        showApp();
 
-showLogin();
+        await loadData();
 
-return;
+      }else if(event==="SIGNED_OUT"){
 
+        user=null;
+
+        showLogin();
+
+      }
+
+    }
+  );
+
+  try{
+
+    const code=
+      new URLSearchParams(
+        window.location.search
+      ).get("code");
+
+    if(code){
+
+      const {error}=
+        await client.auth.exchangeCodeForSession(
+          code
+        );
+
+      if(error){
+        console.error(
+          "Login callback error:",
+          error
+        );
+      }
+
+      window.history.replaceState(
+        {},
+        document.title,
+        window.location.pathname
+      );
+    }
+
+    const {
+      data:{session},
+      error
+    }=
+      await client.auth.getSession();
+
+    if(error)throw error;
+
+    if(session){
+
+      user=session.user;
+
+      showApp();
+
+      await loadData();
+
+    }else{
+
+      showLogin();
+
+    }
+
+  }catch(error){
+
+    console.error(error);
+
+    setMessage(
+      "Login connection error: "+
+      (error.message||String(error)),
+      false
+    );
+
+    showLogin();
+
+  }
 }
-
-const session=result.data.session;
-
-if(session){
-
-user=session.user;
-
-showApp();
-
-await loadData();
-
-}else{
-
-showLogin();
-
-}
-
-
-client.auth.onAuthStateChange(
-async(event,session)=>{
-
-if(session){
-
-user=session.user;
-
-showApp();
-
-await loadData();
-
-}else{
-
-user=null;
-
-showLogin();
-
-}
-
-});
-
-}catch(error){
-
-setMessage(
-"Connection error: "+
-(error.message||String(error)),
-false
-);
-
-}
-
-}
-
 
 function countdown(){
 
-const target=
-new Date("2027-04-04T12:00:00+02:00");
+  const t=
+    new Date(
+      "2027-04-04T12:00:00+02:00"
+    );
 
-const diff=
-Math.max(0,target-new Date());
+  const x=
+    Math.max(
+      0,
+      t-new Date()
+    );
 
-const days=
-Math.floor(diff/86400000);
+  const a=
+    Math.floor(
+      x/86400000
+    );
 
-const hours=
-Math.floor(diff/3600000)%24;
+  const b=
+    Math.floor(
+      x/3600000
+    )%24;
 
-const mins=
-Math.floor(diff/60000)%60;
+  const c=
+    Math.floor(
+      x/60000
+    )%60;
 
-const secs=
-Math.floor(diff/1000)%60;
+  const e=
+    Math.floor(
+      x/1000
+    )%60;
 
-document.getElementById("count").innerHTML=
-
-"<div><b>"+days+
-"</b><small>Days</small></div>"+
-
-"<div><b>"+
-String(hours).padStart(2,"0")+
-"</b><small>Hours</small></div>"+
-
-"<div><b>"+
-String(mins).padStart(2,"0")+
-"</b><small>Mins</small></div>"+
-
-"<div><b>"+
-String(secs).padStart(2,"0")+
-"</b><small>Secs</small></div>";
+  document.getElementById("count").innerHTML=
+    '<div><b>'+
+    a+
+    '</b><small>Days</small></div>'+
+    '<div><b>'+
+    String(b).padStart(2,"0")+
+    '</b><small>Hours</small></div>'+
+    '<div><b>'+
+    String(c).padStart(2,"0")+
+    '</b><small>Mins</small></div>'+
+    '<div><b>'+
+    String(e).padStart(2,"0")+
+    '</b><small>Secs</small></div>';
 
 }
 
-
 countdown();
 
-setInterval(countdown,1000);
+setInterval(
+  countdown,
+  1000
+);
 
 initAuth();
 
